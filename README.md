@@ -1,19 +1,18 @@
-# Homework 3
-Python REST API with for online store.
+# Homework 4
 
-Three microservices (one in each folder):
-1) Product service - for storing products and information about it
-2) Order service - for making order
-3) Auth service - for managing user auth with jwt token
+Super simple project with 1 consumer and 2 producers
+using Celery and Rabbit MQ.
 
-Order service getting product information by REST endpoints.
+### Requirements
 
-### Unit Tests
-For unit test run following command under specific microservice directory: 
-`bash unit_tests.sh`
+1) Local RabbitMQ instance on default port
+2) Celery installed - `pip install celery`
 
-### Integration Tests
-For unit test run following command under specific microservice directory: 
-`bash integration_tests.sh`
+### How to run consumer
 
+`celery -A tasks worker --loglevel=info`
 
+### How to run task producer
+
+`python worker1.py` for task #1
+`python worker2.py` for task #2
